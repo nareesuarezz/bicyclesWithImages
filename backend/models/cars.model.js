@@ -1,9 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
-  const Bicycle = sequelize.define("bicycle", {
+  const Cars = sequelize.define("car", {
     brand: {
       type: Sequelize.STRING
     },
     model: {
+      type: Sequelize.STRING
+    },
+    motor: {
       type: Sequelize.STRING
     },
     // DECOMMENT:
@@ -12,5 +15,5 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
-  return Bicycle;
+  return Cars;
 }

@@ -6,10 +6,10 @@ import { environment } from './environments/environment';
 
 
 // DECOMMENT:
-// import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
-// // Call the element loader after the platform has been bootstrapped
-// defineCustomElements(window);
+// Call the element loader after the platform has been bootstrapped
+defineCustomElements(window);
 
 if (environment.production) {
   enableProdMode();

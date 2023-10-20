@@ -10,24 +10,24 @@ export class PhotoService {
 
   // DECOMMENT:
 
-  // public async takePhoto(): Promise<Photo> {
-  //   // Take a photo
-  //   const capturedPhoto = await Camera.getPhoto({
-  //     resultType: CameraResultType.Uri,
-  //     source: CameraSource.Camera,
-  //     quality: 100
-  //   });
+  public async takePhoto(): Promise<Photo> {
+    // Take a photo
+    const capturedPhoto = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera,
+      quality: 100
+    });
 
-  //   return capturedPhoto;
-  // }
+    return capturedPhoto;
+  }
 
-  // public async pickImage(): Promise<GalleryPhoto> {
-  //   // Take a photo
-  //   const capturedPhotos = await Camera.pickImages({
-  //     limit: 1,
-  //     quality: 100
-  //   });
+  public async pickImage(): Promise<GalleryPhoto> {
+    // Take a photo
+    const capturedPhotos = await Camera.pickImages({
+      limit: 1,
+      quality: 100
+    });
 
-  //   return capturedPhotos.photos[0];
-  // }
+    return capturedPhotos.photos[0];
+  }
 }
