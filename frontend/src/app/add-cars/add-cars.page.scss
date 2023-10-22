@@ -1,20 +1,39 @@
-// DECOMMENT:
-ion-col {
-  text-align: center;
+ion-content ion-grid {
+  padding: 16px;
 }
 
-.photo-frame {
-  margin: 5vw;
-  border: black solid 1px;
-  width: 40vw;
-  border-radius: .25em;
+ion-content ion-grid ion-row {
+  justify-content: center;
 }
 
-.error {
-  color: red;
+ion-content ion-grid ion-row ion-col {
+  align-self: center;
 }
 
-form {
-  margin: 0;
+ion-content ion-grid ion-row ion-col ion-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
+ion-content ion-grid ion-row ion-col ion-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+ion-content form {
+  padding: 0 16px;
+}
+
+ion-content form ion-item {
+  margin-top: 16px;
+}
+
+ion-content form .error {
+  color: #d32f2f;
+}
+
+ion-content form ion-row {
+  margin-top: 32px;
+}

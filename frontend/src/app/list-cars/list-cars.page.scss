@@ -1,5 +1,36 @@
-// DECOMMENT:
-ion-avatar {
-  --border-radius: 4px;
-  border: gray solid 1px;
+ion-content ion-list ion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-content ion-list ion-item ion-avatar {
+  margin-right: 16px;
+}
+
+ion-content ion-list ion-item ion-label {
+  flex-grow: 1;
+}
+
+ion-content ion-list ion-item ion-label h1 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-content ion-list ion-item ion-label p {
+  font-size: 1em;
+  color: #666;
+}
+
+ion-content ion-list ion-item ion-icon {
+  margin-left: 8px;
+}
+
+ion-content ion-fab ion-fab-button ion-icon {
+  font-size: 1.5em;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
 }

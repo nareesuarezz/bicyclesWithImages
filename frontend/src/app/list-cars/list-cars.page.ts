@@ -32,6 +32,11 @@ export class ListCarsPage implements OnInit {
     this.router.navigateByUrl("/add-cars");
   }
 
+  editCar(car: any) {
+    this.router.navigate(['/update-car', car.id]);
+  }
+  
+
   deleteCar(id: number) {
     this.carService.deleteCar(id).subscribe(response => {
       this.getAllCars();

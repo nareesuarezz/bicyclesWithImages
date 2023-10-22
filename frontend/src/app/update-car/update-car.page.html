@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list-cars"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Car</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6">
+        <ion-img class="photo-frame" [src]="capturedPhoto || 'http://localhost:8080/images/' + filename" (click)="takePhoto()"></ion-img>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="primary" fill="outline" (click)="takePhoto()">
+          <ion-icon slot="start" name="camera-outline"></ion-icon>
+          Take a photo
+        </ion-button>
+        <ion-button color="primary" fill="outline" (click)="pickImage()">
+          <ion-icon slot="start" name="image-outline"></ion-icon>
+          Pick an image
+        </ion-button>
+        <ion-button color="danger" fill="outline" (click)="discardImage()">
+          <ion-icon slot="start" name="aperture"></ion-icon>
+          Discard image
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form [formGroup]="carForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input formControlName="brand" type="text" required maxlength="45"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.brand.errors?.required">Necesitas poner una marca.</span>
+    <ion-item lines="full">
+      <ion-label position="floating">Modelo</ion-label>
+      <ion-input formControlName="model" type="text" required maxlength="45"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Necesitas poner un modelo.</span>
+    <ion-item lines="full">
+      <ion-label position="floating">Motor</ion-label>
+      <ion-input formControlName="motor" type="text" required maxlength="45"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.motor.errors?.required">Necesitas poner una motorización.</span>
+    <ion-row>
+      
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

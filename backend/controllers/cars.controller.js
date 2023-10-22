@@ -62,17 +62,27 @@ exports.findOne = (req, res) => {
 };
 
 // Update a Car by the id in the request
+// Update a Car by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
+  const updateCar = {
+    brand: req.body.brand,
+    model: req.body.model,
+    motor: req.body.motor
+  }
 
-  Cars.update(req.body, {
-    where: { id: id }
-  })
-    .then(num => {
-      if (num == 1) {
+  if (req.file) {
+    updateCar.filename = req.file.filename;
+  }
+
+  console.log(updateCar)
+  Cars.findByPk(id)
+    .then(car => {
+      if (car) {
         res.send({
-          message: "Car was updated successfully."
+          message: `Car was updated successfully.`
         });
+        return car.update(updateCar);
       } else {
         res.send({
           message: `Cannot update Car with id=${id}. Maybe Car was not found or req.body is empty!`
@@ -85,6 +95,7 @@ exports.update = (req, res) => {
       });
     });
 };
+
 
 // Delete a Car with the specified id in the request
 exports.delete = (req, res) => {

@@ -45,17 +45,18 @@ export class CarService {
     return this.httpClient.delete(this.endPoint);
   }
 
-  updatCar(id: number, car, blob){
-    let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("brand", car.brand);
-    bodyEncoded.append("model", car.model);
-    bodyEncoded.append("motor", car.motor);
-    bodyEncoded.append("file", blob);
-    const body = bodyEncoded.toString();
-    
-
-    return this.httpClient.put(this.endPoint+`/${id}`, body, httpOptions);
+ updateCar(id: number, car, blob){
+  let formData = new FormData();
+  formData.append("brand", car.brand);
+  formData.append("model", car.model);
+  formData.append("motor", car.motor);
+  if (blob) {
+    formData.append("file", blob);
   }
+
+  return this.httpClient.put(this.endPoint+`/${id}`, formData);
+}
+
 
   
 }
